@@ -10,6 +10,8 @@ GEMINI_MODEL = 'gemini-2.5-pro'
 code_writer_agent = LlmAgent(
     name='code_writer_agent',
     model=GEMINI_MODEL,
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
     instruction=CODE_WRITER_INSTR,
     description='仕様通りにTerraformコードを作成する。',
     output_key='generated_code',
@@ -19,18 +21,21 @@ code_writer_agent = LlmAgent(
 code_reviewer_agent = LlmAgent(
     name="code_reviewer_agent",
     model=GEMINI_MODEL,
-    # Change 3: Improved instruction, correctly using state key injection
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
     instruction=CODE_REVIEWER_INSTR,
     description="Reviews code and provides feedback.",
-    output_key="code_review_comments", # Stores output in state['review_comments']
+    output_key="code_review_comments", # Stores output in state['code_review_comments']
 )
 
 code_refinement_agent = LlmAgent(
     name="code_refinement_agent",
     model=GEMINI_MODEL,
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True,
     instruction=CODE_REFINEMENT_INSTR,
     description="Refactors code based on review comments.",
-    output_key="refined_code", # Stores output in state['refactored_code']
+    output_key="refined_code", # Stores output in state['refined_code']
 )
 
 developer_agent = SequentialAgent(
