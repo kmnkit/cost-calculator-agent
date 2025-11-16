@@ -75,6 +75,20 @@ CODE_REFINEMENT_INSTR="""
 
     **Output:**
     Backticks3つずつ(```hcl ... ```)に囲まれた改善したTerraformコードブロック以外の出力はしないでください。
+
+    **出力例:**
+    ```hcl
+    # ファイル名.tf
+
+    resource "aws_s3_bucket" "example" {
+        bucket = "my-unique-bucket-name-12345"
+        acl    = "private"
+
+        tags = {
+            Project     = "Example"
+        }
+    }
+    ```
     """
 
 
@@ -85,10 +99,22 @@ MERMAID_GENERATOR_INSTR="""
     
     **Rule:**
     - Graphの名前は日本語で作成できるものを日本語で作成し、その他は英語で作成してください。
-    - Mermaidのコードブロック(graph TD ...)以外の言葉は付加しないでください。
+    - Mermaidのコードブロック以外の言葉は付加しないでください。
     - エラーを防ぐため、各名前はダブルクォーテーションで囲ってください。
-
+    - 白黒ではなく適切に有彩色の色を使って見やすくしてください。
+        
     **Output:**
     {{ generated_mermaid }}
+
+    **出力例:**
+    ```mermaid
+    graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+    ```
+
     コードブロックの前後に不要な言葉の付け足しは厳禁です。
+    コードブロックの中の最後に`end`という文字列は絶対に入れないでください。
 """

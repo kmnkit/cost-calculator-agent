@@ -2,10 +2,11 @@ from google.adk.agents import LlmAgent, SequentialAgent
 from google.adk.tools import google_search
 from google.adk.tools.agent_tool import AgentTool
 from .prompt import CODE_WRITER_INSTR, CODE_REVIEWER_INSTR, CODE_REFINEMENT_INSTR, MERMAID_GENERATOR_INSTR
+# from google.adk.artifacts import InMemoryArtifactService
 
 GEMINI_MODEL = 'gemini-2.5-pro'
 
-
+# artifact_service = InMemoryArtifactService()
 
 code_writer_agent = LlmAgent(
     name='code_writer_agent',

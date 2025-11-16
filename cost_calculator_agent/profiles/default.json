@@ -1,0 +1,12 @@
+{
+    "state": {
+        "generated_architecture":null,
+        "architecture_review_comments":null,
+        "refined_architecture":null,        
+        "generated_code":null,
+        "code_review_comments":null,
+        "refined_code":null,        
+        "generated_mermaid":null
+        
+    }
+}

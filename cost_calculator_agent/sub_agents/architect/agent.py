@@ -40,7 +40,7 @@ architecture_refinement_agent=LlmAgent(
 
 solution_architect_agent = SequentialAgent(
     name='solution_architect_agent',
-    description='Userの仕様に基づきAWSアーキテクチャを構成し、レビューしてブラッシュアップしたアーキテクチャを提供します',
+    description='Userの仕様に基づきAWSアーキテクチャを構成し、レビューしてブラッシュアップしたアーキテクチャを提供します',    
     sub_agents=[
         architect_agent, 
         architecture_review_agent,
